@@ -276,6 +276,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1720763912593430730, guid: 57bd8877b6dff9840883a7c866372da2, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720763912593430730, guid: 57bd8877b6dff9840883a7c866372da2, type: 3}
       propertyPath: m_Radius
       value: 0.3
       objectReference: {fileID: 0}
@@ -1966,8 +1970,8 @@ MonoBehaviour:
   orientation: {fileID: 143064665}
   moveSpeed: 1.5
   airMultiplier: 0.4
-  walkSpeed: 2.5
-  sprintSpeed: 6
+  walkSpeed: 1.5
+  sprintSpeed: 2.5
   acceleration: 10
   jumpForce: 0
   jumpKey: 32
@@ -1977,7 +1981,7 @@ MonoBehaviour:
   groundCheck: {fileID: 1068106430}
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   groundDistance: 0.2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
