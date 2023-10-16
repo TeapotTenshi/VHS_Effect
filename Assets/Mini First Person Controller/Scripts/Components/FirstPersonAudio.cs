@@ -4,7 +4,7 @@ using UnityEngine;
 public class FirstPersonAudio : MonoBehaviour
 {
     public FirstPersonMovement character;
-    public GroundCheck groundCheck;
+    //public GroundCheck groundCheck;
 
     [Header("Step")]
     public AudioSource stepAudio;
@@ -36,7 +36,7 @@ public class FirstPersonAudio : MonoBehaviour
     {
         // Setup stuff.
         character = GetComponentInParent<FirstPersonMovement>();
-        groundCheck = (transform.parent ?? transform).GetComponentInChildren<GroundCheck>();
+        //groundCheck = (transform.parent ?? transform).GetComponentInChildren<GroundCheck>();
         stepAudio = GetOrCreateAudioSource("Step Audio");
         runningAudio = GetOrCreateAudioSource("Running Audio");
         landingAudio = GetOrCreateAudioSource("Landing Audio");
@@ -66,7 +66,7 @@ public class FirstPersonAudio : MonoBehaviour
     {
         // Play moving audio if the character is moving and on the ground.
         float velocity = Vector3.Distance(CurrentCharacterPosition, lastCharacterPosition);
-        if (velocity >= velocityThreshold && groundCheck && groundCheck.isGrounded)
+        if (velocity >= velocityThreshold)// && groundCheck && groundCheck.isGrounded)
         {
             if (crouch && crouch.IsCrouched)
             {
@@ -121,7 +121,7 @@ public class FirstPersonAudio : MonoBehaviour
     void SubscribeToEvents()
     {
         // PlayLandingAudio when Grounded.
-        groundCheck.Grounded += PlayLandingAudio;
+        //groundCheck.Grounded += PlayLandingAudio;
 
         // PlayJumpAudio when Jumped.
         if (jump)
@@ -140,7 +140,7 @@ public class FirstPersonAudio : MonoBehaviour
     void UnsubscribeToEvents()
     {
         // Undo PlayLandingAudio when Grounded.
-        groundCheck.Grounded -= PlayLandingAudio;
+        //groundCheck.Grounded -= PlayLandingAudio;
 
         // Undo PlayJumpAudio when Jumped.
         if (jump)
@@ -193,5 +193,5 @@ public class FirstPersonAudio : MonoBehaviour
         audio.clip = clip;
         audio.Play();
     }
-    #endregion 
+    #endregion
 }
